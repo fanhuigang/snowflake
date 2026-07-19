@@ -43,8 +43,8 @@ CREATE USER IF NOT EXISTS github_actions_service_user
   TYPE = SERVICE
   WORKLOAD_IDENTITY = (
     TYPE = OIDC
-    ISSUER = 'https://token.actions.githubusercontent.com',
-    SUBJECT = 'repo:your_repo_org/your_dbt_repo:environment:prod'
+    ISSUER = 'https://token.actions.githubusercontent.com'
+    SUBJECT = 'repo:fanhuigang/snowflake:ref:refs/heads/main'
   )
   DEFAULT_ROLE = ACCOUNTADMIN
   COMMENT = 'Service user for GitHub Actions';
