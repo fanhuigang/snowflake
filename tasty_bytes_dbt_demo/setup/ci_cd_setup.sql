@@ -99,6 +99,10 @@ CREATE NETWORK POLICY github_actions_policy
   ALLOWED_NETWORK_RULE_LIST = ('SNOWFLAKE.NETWORK_SECURITY.GITHUBACTIONS_GLOBAL', <other required rules>)
   BLOCKED_NETWORK_RULE_LIST = ();
 
+CREATE NETWORK POLICY IF NOT EXISTS GITHUB_ACTIONS_POLICY
+  ALLOWED_IP_LIST = ('0.0.0.0/0')
+  COMMENT = 'Network policy for GitHub Actions service user - restrict IPs as needed';
+
 ALTER USER GitHub_Actions_Service_User
   SET NETWORK_POLICY = github_actions_policy;
 
