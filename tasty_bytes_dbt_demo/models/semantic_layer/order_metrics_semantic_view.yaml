@@ -1,0 +1,87 @@
+name: ORDER_METRICS
+description: Order metrics semantic view for Tasty Bytes food truck business. Tracks
+  orders, revenue, menu items, customers, and locations.
+tables:
+  - name: ORDERS
+    base_table:
+      database: TASTY_BYTES_DBT_DB
+      schema: DEV
+      table: ORDERS
+    dimensions:
+      - name: ORDER_ID
+        expr: ORDER_ID
+        data_type: NUMBER
+      - name: TRUCK_ID
+        expr: TRUCK_ID
+        data_type: NUMBER
+      - name: ORDER_DETAIL_ID
+        expr: ORDER_DETAIL_ID
+        data_type: NUMBER
+      - name: LINE_NUMBER
+        expr: LINE_NUMBER
+        data_type: NUMBER
+      - name: TRUCK_BRAND_NAME
+        expr: TRUCK_BRAND_NAME
+        data_type: VARCHAR
+      - name: MENU_TYPE
+        expr: MENU_TYPE
+        data_type: VARCHAR
+      - name: PRIMARY_CITY
+        expr: PRIMARY_CITY
+        data_type: VARCHAR
+      - name: REGION
+        expr: REGION
+        data_type: VARCHAR
+      - name: COUNTRY
+        expr: COUNTRY
+        data_type: VARCHAR
+      - name: FRANCHISE_FLAG
+        expr: FRANCHISE_FLAG
+        data_type: NUMBER
+      - name: FRANCHISE_ID
+        expr: FRANCHISE_ID
+        data_type: NUMBER
+      - name: FRANCHISEE_FIRST_NAME
+        expr: FRANCHISEE_FIRST_NAME
+        data_type: VARCHAR
+      - name: FRANCHISEE_LAST_NAME
+        expr: FRANCHISEE_LAST_NAME
+        data_type: VARCHAR
+      - name: LOCATION_ID
+        expr: LOCATION_ID
+        data_type: NUMBER
+      - name: CUSTOMER_ID
+        expr: CUSTOMER_ID
+        data_type: NUMBER
+      - name: FIRST_NAME
+        expr: FIRST_NAME
+        data_type: VARCHAR
+      - name: LAST_NAME
+        expr: LAST_NAME
+        data_type: VARCHAR
+      - name: MENU_ITEM_ID
+        expr: MENU_ITEM_ID
+        data_type: NUMBER
+      - name: MENU_ITEM_NAME
+        expr: MENU_ITEM_NAME
+        data_type: VARCHAR
+      - name: QUANTITY
+        expr: QUANTITY
+        data_type: NUMBER
+    time_dimensions:
+      - name: ORDER_TS
+        expr: ORDER_TS
+        data_type: TIMESTAMP_NTZ
+    facts:
+      - name: UNIT_PRICE
+        expr: UNIT_PRICE
+        data_type: NUMBER
+      - name: PRICE
+        expr: PRICE
+        data_type: NUMBER
+      - name: ORDER_AMOUNT
+        expr: ORDER_AMOUNT
+        data_type: NUMBER
+      - name: ORDER_TOTAL
+        expr: ORDER_TOTAL
+        data_type: NUMBER
